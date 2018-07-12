@@ -25,7 +25,7 @@ def debug_create_objects(object_list):
                                     SCREEN_SIZE, # bounds
                                     # Can randomized starting position:
                                     # random.randint(30, SCREEN_SIZE[0] - 10)
-                                    Vector2(random.randint(30, SCREEN_SIZE[0] - 100), random.randint(10, SCREEN_SIZE[1] - 100)),
+                                    Vector2(random.randint(0, SCREEN_SIZE[0]), random.randint(300, SCREEN_SIZE[1] - 400)),
                                     # velocity
                                     # Two random numbers between -2 and 2 -- Why would you randomize the velocity?
                                     Vector2(-4, 4), # was `4*random.random() - 2`
@@ -52,31 +52,39 @@ def debug_create_objects(object_list):
         block=StrongBlock(3, Vector2(60 + i * 80, 220), 40, 40, BLOCK_COLOR)
         object_list.append(block)
 
-# ============= PADDLES ============ #
+# ============= PADDLE ============ #
 
-    paddle = Paddle(Vector2(SCREEN_SIZE[0]/2, SCREEN_SIZE[1]-280),
+    paddle = Paddle(Vector2(SCREEN_SIZE[0]/2, SCREEN_SIZE[1]-50),
                          100, 
                          20, 
                          PADDLE_COLOR)
     object_list.append(paddle)
 
-    paddle = Paddle(Vector2(SCREEN_SIZE[0]/2, SCREEN_SIZE[1]-200),
-                         100, 
-                         20, 
-                         PADDLE_COLOR)
-    object_list.append(paddle)
+# ============= SQUARE OF PADDLES ============ #
 
-    paddle = Paddle(Vector2(SCREEN_SIZE[0] - 260, SCREEN_SIZE[1]-240),
-                         20, 
-                         100, 
-                         PADDLE_COLOR)
-    object_list.append(paddle)
+    # paddle = Paddle(Vector2(SCREEN_SIZE[0]/2, SCREEN_SIZE[1]-280),
+    #                      100, 
+    #                      20, 
+    #                      PADDLE_COLOR)
+    # object_list.append(paddle)
 
-    paddle = Paddle(Vector2(SCREEN_SIZE[0] - 140, SCREEN_SIZE[1]-240),
-                         20, 
-                         100, 
-                         PADDLE_COLOR)
-    object_list.append(paddle)
+    # paddle = Paddle(Vector2(SCREEN_SIZE[0]/2, SCREEN_SIZE[1]-200),
+    #                      100, 
+    #                      20, 
+    #                      PADDLE_COLOR)
+    # object_list.append(paddle)
+
+    # paddle = Paddle(Vector2(SCREEN_SIZE[0] - 260, SCREEN_SIZE[1]-240),
+    #                      20, 
+    #                      100, 
+    #                      PADDLE_COLOR)
+    # object_list.append(paddle)
+
+    # paddle = Paddle(Vector2(SCREEN_SIZE[0] - 140, SCREEN_SIZE[1]-240),
+    #                      20, 
+    #                      100, 
+    #                      PADDLE_COLOR)
+    # object_list.append(paddle)
 
     
   
@@ -91,9 +99,11 @@ def main():
     
     debug_create_objects(object_list)
 
-    print(os.getcwd()) # Log this line.
-    sound = pygame.mixer.Sound('test.ogg')
-    sound.play()
+    soundObj = pygame.mixer.Sound('/Users/walterwoodward/Desktop/Project Files/Github/Sprint-Challenge--Python-1/src/sounds/test.ogg') 
+    soundObj.play() 
+    # time.sleep(10) # wait and let the sound play for 1 second soundObj.stop()
+
+    
  
 
     while len(object_list) > 2: # TODO:  Create more elegant condition for loop

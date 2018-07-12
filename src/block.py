@@ -1,7 +1,5 @@
 import pygame
 import random
-
-
 from pygame.math import Vector2
 from pygame import Rect
 
@@ -30,6 +28,9 @@ class Block:
     def update(self, **kwargs):
         # if self.touched_by_ball: # Sanity Check to check that this is working
         #     print("CONTACT MADE!")
+        if self.touched_by_ball:
+            soundObj = pygame.mixer.Sound('/Users/walterwoodward/Desktop/Project Files/Github/Sprint-Challenge--Python-1/src/sounds/hit.ogg') 
+            soundObj.play()
         self.touched_by_ball = False
         self.moving = False
 
